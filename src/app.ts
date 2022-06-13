@@ -17,7 +17,7 @@ import path from "path";
 const express = expressApp();
 
 if (getEnvType() === "production") {
-  express.use(expressApp.static(path.join(__dirname, "..", "build")));
+  express.use(expressApp.static(path.join(__dirname, "..", "frontend", "build")));
 }
 express.use(expressApp.static(PUBLIC_DIR_PATH));
 
@@ -48,7 +48,7 @@ express.use("/api", moduleRoutes);
 
 if (getEnvType() === "production") {
   express.use("*", (req, res, next) => {
-      res.sendFile(path.join(__dirname, "..", "build", "index.html"));
+      res.sendFile(path.join(__dirname, "..", "build", "frontend", "index.html"));
   });
 }
 
