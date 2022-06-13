@@ -16,9 +16,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '14.x'
-    - run: npm i
-    - run: |
+    - name: Installing backend packages
+      run: npm i
+    - name: Installing frontend packages and building
+      run: |
         cd frontend
         npm i
-    - run: npm run build
-    - run: npm run prod
+        npm run build
+    - name: Running backend project
+      run: npm run prod
