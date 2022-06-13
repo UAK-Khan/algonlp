@@ -1,0 +1,17 @@
+.layout {
+  min-height: 100vh;
+}
+
+.content {
+  margin: 16px;
+}
+
+.contentDisplay {
+  background: #fff;
+  padding: 24px;
+  min-height: 360px;
+}
+
+.childLayout {
+  background: #fff;
+}

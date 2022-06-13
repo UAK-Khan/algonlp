@@ -1,0 +1,15 @@
+export const modalsData = [
+  "Text Generator",
+  "Sentimental Analysis",
+  "Aspects Mining",
+  "Keyword Extraction",
+  "Ad Creation",
+  "Product Description",
+  "Named Entity Recognition",
+  "Text Summarization",
+  "Contextual Similarity",
+  "Paraphrasing",
+  "Conversational Bot",
+  "Text or Document Similarity",
+  "Topic Modeling",
+] as const

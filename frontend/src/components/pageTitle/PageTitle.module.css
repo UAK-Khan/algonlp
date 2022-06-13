@@ -1,0 +1,12 @@
+.container {
+  text-align: center;
+}
+
+.title {
+  border-bottom: 5px solid #1890ff;
+  border-radius: 3px;
+}
+
+.sitePageHeader {
+  margin-bottom: 50px !important;
+}

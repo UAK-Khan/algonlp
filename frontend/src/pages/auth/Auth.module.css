@@ -1,0 +1,27 @@
+.bg {
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+.componentWrapper {
+  min-height: 100vh;
+}
+
+.wrapper {
+  border: 1px solid #c7c7c7;
+  border-radius: 4px;
+  padding: 23px;
+  box-shadow: 1px 1px 3px #d7d7d7;
+  background-color: #fff !important;
+}
+
+.logoWrapper {
+  text-align: center;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.submitWrapper {
+  align-items: center;
+}

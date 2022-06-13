@@ -1,0 +1,18 @@
+.header {
+  padding: 0 11px;
+}
+
+.logo {
+  flex: 1;
+  color: #ffffff;
+}
+
+.logoSpan {
+  font-weight: bold;
+  font-size: 1.2em;
+  border: 1px solid #1890ff;
+  padding: 9px;
+  border-radius: 3px;
+  background-color: #052f56;
+  color: #ffffff;
+}

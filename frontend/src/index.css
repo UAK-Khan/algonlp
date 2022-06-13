@@ -1,0 +1,34 @@
+.c-text-center {
+  text-align: center;
+}
+
+.c-text-right {
+  text-align: right;
+}
+
+.c-d-flex {
+  display: flex;
+}
+
+.c-d-flex1 {
+  flex: 1;
+}
+
+.c-container {
+  padding: 40px 64px 64px;
+}
+
+.admin-layout .ql-editor {
+  min-height: 100px !important;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.ant-modal-body {
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+.ant-form-item {
+  margin-bottom: 10px !important;
+}

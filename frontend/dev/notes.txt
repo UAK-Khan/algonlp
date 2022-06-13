@@ -1,0 +1,24 @@
+## Invalidate only single query
+/*
+* Note about Invalidate query,
+* if a route given to queryClient.invalidateQueries which is used with both param and non param then both queries will be
+* invalidated and fetched
+*
+* example:
+   queryClient.invalidateQueries('todos')
+
+   // Both queries below will be invalidated
+   const todoListQuery = useQuery('todos', fetchTodoList)
+   const todoListQuery = useQuery(['todos', { page: 1 }], fetchTodoList)
+* However, to prevent this behavior
+* You can assign unique type to query
+
+  example:
+   queryClient.invalidateQueries(['todos', { type: 'done' }])
+
+ // The query below will be invalidated
+ const todoListQuery = useQuery(['todos', { type: 'done' }], fetchTodoList)
+
+ // However, the following query below will NOT be invalidated
+ const todoListQuery = useQuery('todos', fetchTodoList)
+* */

@@ -1,0 +1,12 @@
+.logo {
+  width: 120px;
+  height: 63px;
+  background-size: contain !important;
+  float: left;
+  background-repeat: no-repeat !important;
+  background-position-y: 4px !important;
+}
+
+.menu {
+  justify-content: center;
+}

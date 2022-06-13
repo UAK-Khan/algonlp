@@ -1,0 +1,8 @@
+.fieldsWrapper {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.numberInput {
+  width: 100%;
+}
