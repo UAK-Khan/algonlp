@@ -40,7 +40,7 @@ const SkillsComp = () => {
                     <Form.Item
                       {...restField}
                       name={[name, 'skill']}
-                      fieldKey={[fieldKey, 'skill']}
+                      fieldKey={[fieldKey || 0, 'skill']}
                       rules={[{ required: true, message: 'Missing skill name' }]}
                     >
                       <Input placeholder="Enter Skill" />
@@ -48,7 +48,7 @@ const SkillsComp = () => {
                     <Form.Item
                       {...restField}
                       name={[name, 'score']}
-                      fieldKey={[fieldKey, 'score']}
+                      fieldKey={[fieldKey || 0, 'score']}
                       rules={[{ required: true, message: 'Missing skill score' }]}
                     >
                       <InputNumber placeholder="Enter Score" className={styles.numberInput} />

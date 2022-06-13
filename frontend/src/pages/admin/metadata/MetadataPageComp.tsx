@@ -41,19 +41,19 @@ const MetadataPageComp = () => {
                     <Form.Item
                       {...restField}
                       name={[name, 'key']}
-                      fieldKey={[fieldKey, 'key']}
+                      fieldKey={[fieldKey || 0, 'key']}
                       rules={[{ required: true, message: 'Missing metadata name' }]}
                     >
-                      <Input placeholder="Enter Key" disabled={!canDelete(fieldKey)} />
+                      <Input placeholder="Enter Key" disabled={!canDelete(fieldKey || 0)} />
                     </Form.Item>
                     <Form.Item
                       {...restField}
                       name={[name, 'value']}
-                      fieldKey={[fieldKey, 'value']}
+                      fieldKey={[fieldKey || 0, 'value']}
                     >
                       <Input placeholder="Enter Value" />
                     </Form.Item>
-                    { canDelete(fieldKey) && <MinusCircleOutlined onClick={() => remove(name)} /> }
+                    { canDelete(fieldKey || 0) && <MinusCircleOutlined onClick={() => remove(name)} /> }
                   </Space>
               ))}
               </div>

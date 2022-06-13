@@ -26,7 +26,7 @@ const ModalsListComp = ({onChangeModal, selectedModal}: PropTypes) => {
         optionFilterProp="children"
         onChange={(e) => onChangeModal(e as typeof modalsData[number])}
         filterOption={(input, option) => {
-          const optionValue = option?.value?.toLowerCase();
+          const optionValue = `${option?.value || ''}`.toLowerCase();
           if (optionValue) return optionValue.indexOf(input.toLowerCase()) !== -1;
           return false;
         }}

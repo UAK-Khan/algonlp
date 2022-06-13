@@ -9,7 +9,7 @@ import ResetTokenDao from "./resetToken/ResetTokenDao";
 import ResetTokenModel from "./resetToken/ResetTokenModel";
 import {RESET_PASSWORD_TOKEN_EXPIRY_TIME_IN_MS} from "../../configs/appConfigs";
 import {msgBadRequest} from "../../misc/systemMessages";
-import {getEnvVar} from "../../core/utils/envUtils";
+import {getEnvType, getEnvVar} from "../../core/utils/envUtils";
 import Transaction = Knex.Transaction;
 
 export const verifyLogin = async (
@@ -45,9 +45,14 @@ export const forgotPassword = async (trx: Transaction, data: AuthForgotPasswordR
       await ResetTokenDao.insertOne(trx, data);
     }
 
-    const routeToResetPasswordPageOnBk = `${getEnvVar("BK_URL")}/api/auth/reset-password/${resetToken}`;
-    // todo: email link
-    console.log(routeToResetPasswordPageOnBk);
+    if (getEnvType() === "development") {
+      const routeToResetPasswordPageOnBk = `http://${getEnvVar("HOST")}:${getEnvVar("PORT")}/api/auth/reset-password/${resetToken}`;
+      // todo: email link
+      console.log(routeToResetPasswordPageOnBk, "dev");
+    } else {
+      const routeToResetPasswordPageOnBk = `${getEnvVar("DOMAIN")}/api/auth/reset-password/${resetToken}`;
+      console.log(routeToResetPasswordPageOnBk, "prod");
+    }
   }
 }
 

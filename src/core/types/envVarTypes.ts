@@ -11,6 +11,5 @@ export type EnvVarTypes = {
   SESSION_SECRET: string,
   REDIS_HOST: string,
   REDIS_PORT: number
-  FE_URL: string,
-  BK_URL: string,
+  DOMAIN: string,
 }

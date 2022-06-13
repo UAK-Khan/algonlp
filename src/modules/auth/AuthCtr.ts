@@ -88,7 +88,7 @@ class AuthCtr {
         const sessionData = await resetPassword(trx, token);
         saveSession(req, sessionData);
         // todo: get all routes from app from routes constants file
-        const routeToResetPasswordPageOnFe = `${getEnvVar("FE_URL")}/change-password`;
+        const routeToResetPasswordPageOnFe = `${getEnvVar("DOMAIN")}/change-password`;
         res.redirect(routeToResetPasswordPageOnFe);
       });
     } catch (e) {
