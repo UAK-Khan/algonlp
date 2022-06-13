@@ -23,5 +23,3 @@ jobs:
         cd frontend
         npm i
         npm run build
-    - name: Running backend project
-      run: npm run prod
