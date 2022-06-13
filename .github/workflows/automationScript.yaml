@@ -19,5 +19,5 @@ jobs:
     - run: |
         npm i
         cd frontend
-        npm i --legacy-peer-deps
+        npm i
         npm run build
