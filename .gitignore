@@ -1,6 +1,5 @@
 node_modules
 .idea
 package-lock.json
-/.env
 /public/images/
 /notes.txt
