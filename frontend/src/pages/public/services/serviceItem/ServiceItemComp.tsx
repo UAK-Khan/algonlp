@@ -19,7 +19,7 @@ const ServiceItemComp = ({service, isLoading}: PropTypes) => {
     return service[key];
   }
 
-  const image = isLoading ? "" : `${SERVER_LOCATION}/${getValue("images")[0]}`;
+  const image = isLoading ? "" : `${SERVER_LOCATION}${getValue("images")[0]}`;
 
   return (
     <Card
