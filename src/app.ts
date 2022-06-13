@@ -48,7 +48,7 @@ express.use("/api", moduleRoutes);
 
 if (getEnvType() === "production") {
   express.use("*", (req, res, next) => {
-      res.sendFile(path.join(__dirname, "..", "build", "frontend", "index.html"));
+      res.sendFile(path.join(__dirname, "..", "frontend", "build", "index.html"));
   });
 }
 

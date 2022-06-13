@@ -1,4 +1,4 @@
-name: algonlp CI
+name: Node.js CI
 
 on:
   push:
@@ -16,8 +16,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '14.x'
+    - run: npm i
     - run: |
-        npm i
         cd frontend
         npm i
-        npm run build
+    - run: npm run build
+    - run: npm run prod
