@@ -27,6 +27,7 @@ express.use(expressApp.static(PUBLIC_DIR_PATH));
  * set same site flag
  * see whether cors should be used in production
  */
+
 if (getEnvType() === "development") {
   express.use(cors({
     credentials: true,
