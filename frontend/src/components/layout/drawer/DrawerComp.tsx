@@ -58,7 +58,7 @@ const DrawerComp = ({ drawerOpen, onToggleDrawer }: PropTypes) => {
         ))}
         <SubMenu key="sub1" icon={<SettingOutlined />} title="Manage">
           {manageMenuItems.map((item, idx) => (
-            <Menu.Item key={idx + menuItems.length + 1} icon={item.icon}>
+            <Menu.Item key={idx + item.title} icon={item.icon}>
               <Link to={item.to}>{item.title}</Link>
             </Menu.Item>
           ))}

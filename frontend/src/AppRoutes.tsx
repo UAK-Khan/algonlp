@@ -21,7 +21,7 @@ import {
   LOGIN_ROUTE,
   REGISTER_ROUTE,
   SERVICE_DETAIL_ROUTE,
-  SERVICES_ROUTE
+  SERVICES_ROUTE, VERIFY_ACCOUNT_ROUTE
 } from "./shared/routesConstants";
 import ServicesPageComp from "./pages/admin/services/ServicesPageComp";
 import PackagesPageComp from "./pages/admin/packages/PackagesPageComp";
@@ -47,11 +47,13 @@ import FeedbackPageComp from "./pages/public/feedback/FeedbackPageComp";
 import ServicesDisplayPageComp from "./pages/public/services/ServicesPageComp";
 import ServiceDetailPageComp from "./pages/public/serviceDetail/ServiceDetailPageComp";
 import HomePageComp from "./pages/public/home/HomePageComp";
+import VerifyAccountComp from "./pages/auth/verifyAccount/VerifyAccountComp";
 
 const AppRoutes = () => {
   return (
     <Router>
       <Routes>
+        <Route path={`${VERIFY_ACCOUNT_ROUTE}/:userId/:verificationCode`} element={<VerifyAccountComp/>}/>
         <Route path="admin" element={<SuperAuthGuard><AdminPageComp/></SuperAuthGuard>}>
           <Route path={ADMIN_USERS} element={<UsersPageComp/>}/>
           <Route path={ADMIN_SERVICES} element={<ServicesPageComp/>}/>

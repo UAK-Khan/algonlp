@@ -7,12 +7,12 @@ import {
 } from "../../interfaces/modulesTypes";
 import {
   msgAuthForgotPasswordEmailSent,
-  msgAuthPasswordUpdated,
+  msgAuthPasswordUpdated, msgAuthVerifyAccVerified,
   msgUserLoggedIn,
   msgUserRegistered
 } from "../../misc/responseMessages";
-import {addUser, changeUserPassword} from "../users/UsersSrv";
-import {forgotPassword, resetPassword, verifyLogin} from "./AuthSrv";
+import {addUser, changeUserPassword, sendVerificationDetails} from "../users/UsersSrv";
+import {forgotPassword, resetPassword, verifyAccount, verifyLogin} from "./AuthSrv";
 import {destroySession, saveSession} from "../../core/utils/serssionUtils";
 import UnprocessableEntityErrorModel from "../../core/error/UnprocessableEntityErrorModel";
 import {msgLogout} from "../../misc/systemMessages";
@@ -53,7 +53,8 @@ class AuthCtr {
     try {
       const requestBody = req.body;
       await DB.transaction(async (trx) => {
-        await addUser(trx, requestBody);
+        const user = await addUser(trx, requestBody);
+        await sendVerificationDetails(trx, user);
         res.sendMsg(msgUserRegistered);
       });
     } catch (e) {
@@ -139,6 +140,22 @@ class AuthCtr {
   ) {
     try {
       res.sendObject(req.session.user);
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  static async verifyAccount(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) {
+    try {
+      const { userId, verificationCode } = req.params;
+      await DB.transaction(async (trx) => {
+        await verifyAccount(trx, { userId, verificationCode });
+        res.sendMsg(msgAuthVerifyAccVerified);
+      });
     } catch (e) {
       next(e);
     }

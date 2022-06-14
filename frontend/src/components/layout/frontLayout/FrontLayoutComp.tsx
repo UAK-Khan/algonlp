@@ -48,11 +48,16 @@ const FrontLayoutComp = () => {
                 <Menu.Item key="8">
                   <Link to={REGISTER_ROUTE}>Register</Link>
                 </Menu.Item>
-                <Menu.Item key="8">
+                <Menu.Item key="9">
                   <Link to={LOGIN_ROUTE}>Login</Link>
                 </Menu.Item>
               </>
             ) }
+            { user?.type === "admin" && (
+              <Menu.Item key="8">
+                <Link to="/admin">Admin</Link>
+              </Menu.Item>
+            )}
           </Menu>
         </Header>
         <Content className="site-layout" style={{ marginTop: 64, minHeight: "80vh" }}>

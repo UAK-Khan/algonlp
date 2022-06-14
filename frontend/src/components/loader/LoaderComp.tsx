@@ -4,14 +4,19 @@ import {Spin} from "antd";
 type PropTypes = {
   children: JSX.Element;
   isLoading: boolean;
+  tip?: string;
 }
 
-const LoaderComp = ({ children, isLoading }: PropTypes) => {
+const LoaderComp = ({ children, isLoading, tip }: PropTypes) => {
   return (
-    <Spin tip="Loading..." spinning={isLoading} size="large" style={{height: "100vh"}}>
+    <Spin tip={tip} spinning={isLoading} size="large" style={{height: "100vh"}}>
       {children}
     </Spin>
   );
 };
+
+LoaderComp.defaultProps = {
+  tip: "Loading..."
+}
 
 export default LoaderComp;

@@ -38,3 +38,6 @@ export const msgPwdResetTokenExpired = "The password reset link has been expired
 export const msgContactUsDetailsSaved = "The contact details has been submitted";
 
 export const msgCannotDeletePackage = "The package cannot be deleted, because it may have relation with services";
+
+export const msgAuthVerifyAccInvalidLink = "The link is either invalid or expired";
+export const msgAuthVerifyAccVerified = "Your account has been verified successfully!";

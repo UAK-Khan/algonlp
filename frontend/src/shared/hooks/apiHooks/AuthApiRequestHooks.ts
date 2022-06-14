@@ -5,7 +5,7 @@ import {
   LoginRequestType,
   RegisterUserRequestType,
   ResetPasswordRequestType,
-  UsersType
+  UsersType, VerifyAccountRequestType
 } from "../../interfaces/moduleTypes";
 import {useMutation, useQuery, useQueryClient} from "react-query";
 import {DefaultResponseType} from "../../interfaces/ajaxTypes";
@@ -59,4 +59,11 @@ export const useUserSessionRequest = (onSuccess?: (data: DefaultResponseType<Use
     // show error msg for this request
     return axios.get(query, { validateStatus: () => true }).then((data) => data.data)
   }, { onSuccess, retry: false });
+}
+
+export const useVerifyAccountRequest = (onSuccess?: (data: DefaultResponseType) => void) => {
+  return useMutation((reqData: VerifyAccountRequestType) => {
+    return axios.get<DefaultResponseType>(`${AUTH_ROUTE}/verify-account/${reqData.userId}/${reqData.verificationCode}`)
+      .then((data) => data.data);
+  }, { onSuccess });
 }

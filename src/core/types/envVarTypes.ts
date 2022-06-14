@@ -12,4 +12,9 @@ export type EnvVarTypes = {
   REDIS_HOST: string,
   REDIS_PORT: number
   DOMAIN: string,
+  MAIL_HOST: string,
+  MAIL_PORT: string,
+  MAIL_AUTH_USER: string,
+  MAIL_AUTH_PASSWORD: string,
+  MAIL_FROM: string,
 }

@@ -31,8 +31,8 @@ const ModalsListComp = ({onChangeModal, selectedModal}: PropTypes) => {
           return false;
         }}
       >
-        {modalsData.map((modal) => (
-          <Select.Option value={modal}>{modal}</Select.Option>
+        {modalsData.map((modal, idx) => (
+          <Select.Option key={idx.toString()} value={modal}>{modal}</Select.Option>
         ))}
       </Select>
     </div>

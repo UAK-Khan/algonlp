@@ -143,3 +143,8 @@ export type AllContactsResponseType = ContactRequestBodyType & {
   createdAt?: string,
   id?: string,
 }
+
+export type VerifyAccountRequestType = {
+  userId: string,
+  verificationCode: string,
+}

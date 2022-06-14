@@ -3,6 +3,7 @@ import {ColumnsType} from "antd/lib/table";
 import {useGetAllUsersRequest} from "../../../shared/hooks/apiHooks/UsersApiRequestHooks";
 import TableComp from "../../../components/table/TableComp";
 import {getFormattedDate} from "../../../shared/utils/utils";
+import {Tag} from "antd";
 
 const columns:ColumnsType<any> = [
   {
@@ -25,6 +26,19 @@ const columns:ColumnsType<any> = [
     dataIndex: 'createdAt',
     key: 'createdAt',
     render: (value) => getFormattedDate(value)
+  },
+  {
+    title: 'Verified?',
+    dataIndex: 'isVerified',
+    key: 'isVerified',
+    render: (isVerified) => {
+      return (<Tag
+          title={`The email is ${!isVerified ? 'not ': ''}verified`}
+          color={isVerified ? "success": "warning"}>
+          {isVerified ? "Verified": "Unverified"}
+        </Tag>
+      )
+    }
   },
 ];
 

@@ -10,6 +10,7 @@ authRoutes.put("/change-password", isAuth, vldChangeUserPassword, AuthCtr.change
 authRoutes.post("/forgot-password", isUnAuth, vldForgotUserPassword, AuthCtr.forgotPassword);
 authRoutes.get("/reset-password/:token", isUnAuth, AuthCtr.resetPassword);
 authRoutes.get("/logout", AuthCtr.logout);
+authRoutes.get("/verify-account/:userId/:verificationCode", AuthCtr.verifyAccount);
 authRoutes.get("/session", isAuth, AuthCtr.getSession);
 
 export default authRoutes;

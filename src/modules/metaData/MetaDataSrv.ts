@@ -11,8 +11,8 @@ const deleteExistingMetaData = (trx: Transaction) => {
 export const updateMetaData = async (trx: Transaction, data: MetaDataRequestBodyType[]) => {
   await deleteExistingMetaData(trx);
   const metaDataModels = data.map(({
-                                     key, value, preventDelete
-                                   }): MetaDataModel => ({key, value, preventDelete}));
+    key, value, preventDelete
+  }): MetaDataModel => ({key, value, preventDelete}));
   return MetaDataDao.insertMany(trx, metaDataModels);
 }
 

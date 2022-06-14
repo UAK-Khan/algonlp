@@ -12,6 +12,7 @@ export const REGISTER_ROUTE = "/register";
 export const LOGIN_ROUTE = "/login";
 export const FORGOT_PASSWORD_ROUTE = "/forgot-password";
 export const CHANGE_PASSWORD_ROUTE = "/change-password";
+export const VERIFY_ACCOUNT_ROUTE = "/verify-account";
 export const CONTACT_ROUTE = "/contact";
 export const FEEDBACK_ROUTE = "/feedback";
 export const SERVICES_ROUTE = "/services";

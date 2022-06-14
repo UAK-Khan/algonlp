@@ -13,8 +13,8 @@ const BreadcrumbComp = () => {
 
   return (
     <Breadcrumb className={styles.breadcrumb}>
-      {getPaths(history.pathname).map((path) => (
-        <Breadcrumb.Item key={path}>{path}</Breadcrumb.Item>
+      {getPaths(history.pathname).map((path, idx) => (
+        <Breadcrumb.Item key={idx.toString()}>{path}</Breadcrumb.Item>
       ))}
     </Breadcrumb>
   );

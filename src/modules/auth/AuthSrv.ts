@@ -2,7 +2,7 @@ import {Knex} from "knex";
 import {AuthForgotPasswordRequestBodyType, UserRequestBodyType, UserSessionType} from "../../interfaces/modulesTypes";
 import UsersDao from "../users/UsersDao";
 import UnprocessableEntityErrorModel from "../../core/error/UnprocessableEntityErrorModel";
-import {msgPwdResetTokenExpired, msgUserInvalidLogin} from "../../misc/responseMessages";
+import {msgAuthVerifyAccInvalidLink, msgPwdResetTokenExpired, msgUserInvalidLogin} from "../../misc/responseMessages";
 import {bcryptCompare, bcryptHash} from "../../core/utils/bcryptUtils";
 import {generateRandomBytes, generateRandomPassword} from "../../core/utils/stringUtils";
 import ResetTokenDao from "./resetToken/ResetTokenDao";
@@ -11,6 +11,7 @@ import {RESET_PASSWORD_TOKEN_EXPIRY_TIME_IN_MS} from "../../configs/appConfigs";
 import {msgBadRequest} from "../../misc/systemMessages";
 import {getEnvType, getEnvVar} from "../../core/utils/envUtils";
 import Transaction = Knex.Transaction;
+import UserVerificationDao from "./userVerification/UserVerificationDao";
 
 export const verifyLogin = async (
   trx: Transaction,
@@ -77,4 +78,16 @@ export const resetPassword = async (trx: Transaction, token: string) => {
     }
   }
   throw new UnprocessableEntityErrorModel(msgBadRequest)
+}
+
+export const verifyAccount = async (
+  trx: Transaction,
+  { userId, verificationCode }: { userId: string, verificationCode: string }
+) => {
+  if (!(userId && verificationCode)) throw new UnprocessableEntityErrorModel(msgAuthVerifyAccInvalidLink);
+  const userVerifModel = await UserVerificationDao.findOneByPredicate(trx, {
+    userId, verificationCode
+  });
+  if (!userVerifModel) throw new UnprocessableEntityErrorModel(msgAuthVerifyAccInvalidLink);
+  await UserVerificationDao.deleteOneById(trx, userVerifModel.id as string);
 }
