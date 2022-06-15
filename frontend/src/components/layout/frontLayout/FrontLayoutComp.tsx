@@ -55,7 +55,7 @@ const FrontLayoutComp = () => {
             ) }
             { user?.type === "admin" && (
               <Menu.Item key="8">
-                <Link to="/admin">Admin</Link>
+                <Link to="/admin/users">Admin</Link>
               </Menu.Item>
             )}
           </Menu>
