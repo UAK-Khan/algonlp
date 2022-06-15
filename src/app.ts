@@ -16,8 +16,10 @@ import path from "path";
 
 const express = expressApp();
 
+const clientBuildPath = path.join(__dirname, "..", "frontend", "build")
+
 if (getEnvType() === "production") {
-  express.use(expressApp.static(path.join(__dirname, "..", "frontend", "build")));
+  express.use(expressApp.static(clientBuildPath));
 }
 express.use(expressApp.static(PUBLIC_DIR_PATH));
 
@@ -48,7 +50,7 @@ express.use("/api", moduleRoutes);
 
 if (getEnvType() === "production") {
   express.use("*", (req, res, next) => {
-      res.sendFile(path.join(__dirname, "..", "frontend", "build", "index.html"));
+      res.sendFile("index.html", { root: clientBuildPath });
   });
 }
 

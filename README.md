@@ -11,6 +11,6 @@ TODO:
 - [_/] admin feedback page show messages in detail view
 - [_/] public feedback page reload feedbacks after submit
 - [_/] show formatted date in the app use "getFormattedDate" util fn created in fe
-- show admin button on public header when admin logins
+- [_/] show admin button on public header when admin logins
 - already login but still sometimes shows you are not authenticated in fe. don't show unauthenticated popup when not
   logged-in in fe
