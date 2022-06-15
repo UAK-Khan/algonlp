@@ -1,25 +1,46 @@
-name: Node.js CI
+name: 🚀 Deploy website on push
 
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
-
 jobs:
-  build:
-    runs-on: self-hosted
-
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14.x'
-    - name: Installing backend packages
-      run: npm i
-    - name: Installing frontend packages and building
-      run: |
-        cd frontend
-        npm i
-        npm run build
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ftp.algonlp.com
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
+          server-dir: /apps/
+
+#name: Node.js CI
+#
+#on:
+#  push:
+#    branches: [main]
+#  pull_request:
+#    branches: [main]
+#
+#jobs:
+#  build:
+#    runs-on: self-hosted
+#
+#    steps:
+#    - uses: actions/checkout@v2
+#    - name: Use Node.js
+#      uses: actions/setup-node@v1
+#      with:
+#        node-version: '14.x'
+#    - name: Installing backend packages
+#      run: npm i
+#    - name: Installing frontend packages and building
+#      run: |
+#        cd frontend
+#        npm i
+#        npm run build
