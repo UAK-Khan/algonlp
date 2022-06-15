@@ -13,7 +13,7 @@ import {
 } from "../../misc/responseMessages";
 import {addUser, changeUserPassword, sendVerificationDetails} from "../users/UsersSrv";
 import {forgotPassword, resetPassword, verifyAccount, verifyLogin} from "./AuthSrv";
-import {destroySession, saveSession} from "../../core/utils/serssionUtils";
+import {destroySession, saveSession} from "../../core/utils/sessionUtils";
 import UnprocessableEntityErrorModel from "../../core/error/UnprocessableEntityErrorModel";
 import {msgLogout} from "../../misc/systemMessages";
 import {

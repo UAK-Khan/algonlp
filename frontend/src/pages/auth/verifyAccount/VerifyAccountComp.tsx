@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import {message} from "antd";
 import {useVerifyAccountRequest} from "../../../shared/hooks/apiHooks/AuthApiRequestHooks";
@@ -16,7 +16,7 @@ const VerifyAccountComp = () => {
     } else {
       message.error("Invalid link");
     }
-  }, [userId, verificationCode]);
+  }, [mutate, userId, verificationCode]);
 
   return (
     <div>

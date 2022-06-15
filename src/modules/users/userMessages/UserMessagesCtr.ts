@@ -6,7 +6,7 @@ import {
 } from "../../../interfaces/modulesTypes";
 import {DB} from "../../../core/knex/knexConfigs";
 import {addUserMessage, getAllUserMessages, getUserMessageDetails} from "./UserMessagesSrv";
-import {getUserSession} from "../../../core/utils/serssionUtils";
+import {getUserSession} from "../../../core/utils/sessionUtils";
 import {msgMessageSaved} from "../../../misc/responseMessages";
 
 class UserMessagesCtr {

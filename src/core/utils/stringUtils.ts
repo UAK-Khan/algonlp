@@ -8,3 +8,7 @@ export const generateRandomBytes = (size = 32) => {
 export const generateRandomPassword = (length = 8) => {
   return pwdGenerator.generate({numbers: true, length});
 }
+
+export const hasDuplicates = (array: unknown[]) => {
+  return (new Set(array)).size !== array.length;
+}

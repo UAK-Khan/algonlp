@@ -1,7 +1,7 @@
 import BaseModel from "../../../core/module/BaseModel";
 
 class ResetTokenModel extends BaseModel {
-  static TABLE_NAME = "reset-token";
+  static TABLE_NAME = "reset_token";
 
   constructor(
     public userId: string,

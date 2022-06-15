@@ -41,7 +41,7 @@ const menuItems = [
 
 const manageMenuItems = [
   { title: "Service", to: ADMIN_SERVICES, icon: <DeploymentUnitOutlined />},
-  { title: "Portfolio", to: ADMIN_PORTFOLIO, icon: <AntDesignOutlined />},
+  // { title: "Portfolio", to: ADMIN_PORTFOLIO, icon: <AntDesignOutlined />},
   { title: "Metadata", to: ADMIN_METADATA, icon: <ContainerOutlined />},
   { title: "Packages", to: ADMIN_PACKAGES, icon: <CodeSandboxOutlined />},
   { title: "About", to: ADMIN_ABOUT, icon: <AliwangwangOutlined />}

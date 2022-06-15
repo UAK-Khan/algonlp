@@ -12,6 +12,7 @@ import {msgBadRequest} from "../../misc/systemMessages";
 import {getEnvType, getEnvVar} from "../../core/utils/envUtils";
 import Transaction = Knex.Transaction;
 import UserVerificationDao from "./userVerification/UserVerificationDao";
+import {sendMail} from "../../core/utils/emailUtils";
 
 export const verifyLogin = async (
   trx: Transaction,
@@ -46,14 +47,18 @@ export const forgotPassword = async (trx: Transaction, data: AuthForgotPasswordR
       await ResetTokenDao.insertOne(trx, data);
     }
 
+    let routeToResetPasswordPageOnBk = "";
     if (getEnvType() === "development") {
-      const routeToResetPasswordPageOnBk = `http://${getEnvVar("HOST")}:${getEnvVar("PORT")}/api/auth/reset-password/${resetToken}`;
-      // todo: email link
-      console.log(routeToResetPasswordPageOnBk, "dev");
+      routeToResetPasswordPageOnBk = `http://${getEnvVar("HOST")}:${getEnvVar("PORT")}/api/auth/reset-password/${resetToken}`;
     } else {
-      const routeToResetPasswordPageOnBk = `${getEnvVar("DOMAIN")}/api/auth/reset-password/${resetToken}`;
+      routeToResetPasswordPageOnBk = `${getEnvVar("DOMAIN")}/api/auth/reset-password/${resetToken}`;
       console.log(routeToResetPasswordPageOnBk, "prod");
     }
+    await sendMail({
+      to: user.email,
+      subject: "Reset Your Password",
+      html: `<a href="${routeToResetPasswordPageOnBk}" target="_blank">Click Here To Your Reset Password</a>`
+    });
   }
 }
 

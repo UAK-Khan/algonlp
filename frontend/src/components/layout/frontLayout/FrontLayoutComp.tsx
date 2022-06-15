@@ -25,7 +25,7 @@ const FrontLayoutComp = () => {
     <div>
       <Layout>
         <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
-          <a href={feUrl} title={feUrl} className={styles.logo} style={{background: `url(${logoPath})`}} />
+          <a href={feUrl} title={feUrl} className={styles.logo} style={{background: `url(${logoPath})`}}> </a>
           <Menu className={styles.menu} theme="dark" mode="horizontal" defaultSelectedKeys={['/']} selectedKeys={[location.pathname]}>
             <Menu.Item key={HOMEPAGE}>
               <Link to={HOMEPAGE}>Home</Link>

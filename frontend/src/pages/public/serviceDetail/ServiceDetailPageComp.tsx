@@ -7,6 +7,7 @@ import {useGetServiceRequest} from "../../../shared/hooks/apiHooks/ServicesApiRe
 import {useParams} from "react-router-dom";
 import {IMAGE_PLACEHOLDER_PATH, SERVER_LOCATION} from "../../../configs/appConfigs";
 import {useGetPackageRequestByIds} from "../../../shared/hooks/apiHooks/PackagesApiRequestHooks";
+import styles from "./serviceDetail.module.css"
 
 const ServiceDetailPageComp = () => {
   const params = useParams<{ serviceId: string }>();
@@ -39,7 +40,7 @@ const ServiceDetailPageComp = () => {
             <Typography.Title level={1}>
               {getValue("title")}
             </Typography.Title>
-            <Carousel effect="fade" autoplay autoplaySpeed={4000}>
+            <Carousel effect="fade" autoplay autoplaySpeed={4000} className={styles.carousel}>
               {images.map((image) => (
                 <div key={image}>
                   <Image src={image} fallback={IMAGE_PLACEHOLDER_PATH}/>

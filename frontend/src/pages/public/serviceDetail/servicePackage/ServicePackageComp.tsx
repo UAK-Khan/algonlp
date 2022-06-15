@@ -28,7 +28,7 @@ const ServicePackageComp = ({servicePackage}: PropTypes) => {
         <Tag icon={<ClockCircleOutlined/>} color="green">{dayDelivery} Day Delivery</Tag>
         <Tag icon={<HistoryOutlined/>} color="volcano">{revisions} Revisions</Tag>
       </Space>
-      <div className={styles.list}>
+      {servicesIncludes?.length ? (<div className={styles.list}>
         <List
           itemLayout="horizontal"
           dataSource={servicesIncludes}
@@ -43,7 +43,7 @@ const ServicePackageComp = ({servicePackage}: PropTypes) => {
             </List.Item>
           )}
         />
-      </div>
+      </div>): <br />}
       <br/>
       <Button type="primary" size="large" icon={<WechatOutlined/>} style={{width: '100%'}}
               onClick={() => navigate(CONTACT_ROUTE)}>

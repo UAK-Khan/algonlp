@@ -3,7 +3,7 @@ import {DB} from "../../core/knex/knexConfigs";
 import {AllFeedbacksResponseType, FeedbackRequestBodyType, FeedbackResponseType,} from "../../interfaces/modulesTypes";
 import {addFeedback, getAllFeedbacks, getFeedback} from "./FeedbackSrv";
 import {msgFeedbackSubmit} from "../../misc/responseMessages";
-import {getUserSession} from "../../core/utils/serssionUtils";
+import {getUserSession} from "../../core/utils/sessionUtils";
 import {SessionData} from "express-session";
 
 class FeedbackCtr {
